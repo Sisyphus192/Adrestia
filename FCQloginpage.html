@@ -12,7 +12,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 form {border: 3px solid #f1f1f1;}
 
 input[type=text], input[type=password] {
-    width: 100%;
+    width: 40%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -27,7 +27,7 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 30%;
 }
 
 button:hover {
@@ -72,39 +72,45 @@ span.psw {
        width: 100%;
     }
 }
+
 </style>
 </head>
 <body>
 <div id="homepage">
 <h2 style="color: solid yellow;">FCQs</h2>
-<h4 style="color: solid yellow;">To assist students in balancing their semesters with better course planning.</h4>
+<p style="color: solid yellow; font-weight: bold;">To assist students in balancing their semesters with better course planning.</p>
 <hr>
 </div>
 
-<form action="/action_page.php">
-  <div class="imgcontainer">
-    <img src="fcq.jpeg" alt="ourpic" class="avatar">
-  </div>
 
+
+<form action="storeData.html" method="get">
+  
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <label for="uname"><b>Username</b></label><br>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="text" placeholder="Enter Username" name="uname" required><br>
+
+    <label for="psw"><b>Password</b></label><br>
+    <input type="password" placeholder="Enter Password" name="psw" required><br>
         
     <button type="submit">Login</button>
-    <button type="submit">Create Account</button>
-    <label>
+    
+    <label> <br>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
   </div>
+</form>
 
+  <a href="createAccount.html">
+  <button type="submit">Create Account</button>
+  </a>
+
+<form>
   <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Cancel</button>
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </form>
-
 </body>
 </html>
