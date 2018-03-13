@@ -23,3 +23,5 @@ urlpatterns = [
     path('', include('main.urls')),
     path('course/', course)
 ]
+
+urlpatterns += patterns(”, (r’^static/(?P.*)$’, ‘django.views.static.serve’, {‘document_root’: settings.STATIC_ROOT}),)
