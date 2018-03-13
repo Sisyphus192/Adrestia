@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 #homepage { 
-  background-color: #8C7DCF    ;
+  background-color: black ;
   
  }
 body {font-family: Arial, Helvetica, sans-serif;}
 form {border: 3px solid #f1f1f1;}
 
 input[type=text], input[type=password] {
-    width: 40%;
+    width: 100;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -27,7 +27,7 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 30%;
+    width: relative;
 }
 
 button:hover {
@@ -41,7 +41,7 @@ button:hover {
 }
 
 .imgcontainer {
-    background-color: ;
+    background-color: black;
     width: 100%;
     text-align: center;
     /* margin: 24px 0 12px 0; */
@@ -55,6 +55,7 @@ img.avatar {
 
 .container {
     padding: 16px;
+    width: 100%%;
 }
 
 span.psw {
@@ -75,17 +76,17 @@ span.psw {
 
 </style>
 </head>
-<body>
+<body style="background-color: grey; height: 700px;">
+
 <div id="homepage">
-<h2 style="color: solid yellow;">FCQs</h2>
-<p style="color: solid yellow; font-weight: bold;">To assist students in balancing their semesters with better course planning.</p>
+<h1 style="color: white; ">FCQs <br> CU Boulder</h1>
 <hr>
 </div>
 
 
 
-<form action="storeData.html" method="get">
-  
+<form action="storeData.php" method="post" style="height: 500px;">
+  <div id= "topBackground" style="background-color: grey; width: 50%; height: 90%;border: grey;"> 
   <div class="container">
     <label for="uname"><b>Username</b></label><br>
 
@@ -99,6 +100,7 @@ span.psw {
     <label> <br>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
+  </div>
   </div>
 </form>
 
