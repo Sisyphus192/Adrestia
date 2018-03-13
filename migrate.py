@@ -8,6 +8,6 @@ db_url = db_url[:8]+'+psycopg2'+db_url[8:]
 print(db_url)
 engine = create_engine(db_url)
 df = pd.read_csv('data/APPM.csv')
-df.to_sql(con=engine, name='appm', if_exists='replace', index=True)
+df.to_sql(con=engine, name='courses', if_exists='replace', index=True)
 
 
