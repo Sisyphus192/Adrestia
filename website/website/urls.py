@@ -15,8 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls import patterns
-
 from main.views import course
 
 urlpatterns = [
@@ -25,6 +23,3 @@ urlpatterns = [
     path('course/', course)
 ]
 
-urlpatterns += patterns('',
- (r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
- )
