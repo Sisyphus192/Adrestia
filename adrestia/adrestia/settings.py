@@ -76,8 +76,13 @@ WSGI_APPLICATION = 'adrestia.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	#adding database to connect to user login
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'fcqdata',
+	'USER': 'root',
+	'PASSWORD': 'Windhorse21!',
+	'HOST': 'localhost',
+	'PORT':'3306',
     }
 }
 
