@@ -19,7 +19,10 @@ from main.views import course
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main.urls')),
+    #path('', include('main.urls')),
     path('course/', course)
+    path('main/', include('main.urls')),
+    path('main/createAccount', include('main.urls')),
+    path('admin/', admin.site.urls),
 ]
 

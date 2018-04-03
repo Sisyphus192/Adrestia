@@ -7,8 +7,14 @@ import pandas as pd
 
 # Create your views here.
 def index(request):
-    return render(request, 'main/home.html')
+    return render(request, 'login/FCQLoginpage.html')
 
 def course(request):
     table = CourseTable(Courses.objects.filter(crse=3170))
     return render(request, 'main/course.html', {'course':table})
+
+#to pull create account page
+def createAccount(request):
+	return render(request, 'login/createAccount.html', {})
+	
+
