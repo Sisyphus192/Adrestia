@@ -84,6 +84,14 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
+    },
+    'createAccount': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'fcqdata',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
