@@ -78,15 +78,12 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 DATABASES = {
     'default': {
-	HEAD:adrestia/adrestia/settings.py
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6vvol0psn7p35',
-        'USER': 'hazjgxogecdryo',
-        'PASSWORD': '524750f8e0e26313b5b5c2391be6861df6d44010de842b742efe881e30672973',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'adrestiaDB',
+        'USER': 'root',
+        'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '',
-	eaa91162092c94e912f1cea15f6d1709b965850c:website/website/settings.py
+        'PORT': '3306',
     }
 }
 
@@ -128,6 +125,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR , 'staticfiles')
+#STATIC_ROOT = os.path.join(BASE_DIR , 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'))
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'))

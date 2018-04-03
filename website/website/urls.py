@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from main.views import course
+from main.views import course, FCQloginpage, createAccount
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('', include('main.urls')),
-    path('course/', course)
-    path('main/', include('main.urls')),
-    path('main/createAccount', include('main.urls')),
-    path('admin/', admin.site.urls),
+    path('', FCQloginpage),
+    path('course/', course),
+#    path('main/', include('main.urls')),
+    path('createAccount/', createAccount)
+#    path('admin/', admin.site.urls),
 ]
 
