@@ -19,7 +19,7 @@ from main.views import course, FCQloginpage, createAccount
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', FCQloginpage),
+    path('/', FCQloginpage),
     path('course/', course),
 #    path('main/', include('main.urls')),
     path('createAccount/', createAccount)
