@@ -7,7 +7,7 @@ import pandas as pd
 
 # Create your views here.
 def FCQloginpage(request):
-    return render(request, 'main/FCQLoginpage.html')
+    return render(request, 'main/FCQloginpage.html')
 
 def course(request):
     table = CourseTable(Courses.objects.filter(crse=3170))
