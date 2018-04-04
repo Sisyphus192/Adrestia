@@ -1,0 +1,51 @@
+<!-- insert name here -->
+{% load render_table from django_tables2 %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load staticfiles %}
+    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'main/css/fcq_Natnael.css' %}" type="text/css" />
+
+    <title>Bootstrap Grid System!</title>
+
+  </head>
+  <body>
+    <!-- insert your code here -->
+    <div class="dropdown_courses" style="float:right; margin-right: 2%; margin-top: 2%;" >
+  		<button class="dropbtn">SELECT COURSE</button>
+  		<div class="dropdown-content">
+    		<a href="#">Course 1</a>
+    		<a href="#">Course 2</a>
+    		<a href="#">Course 3</a>
+  		</div>
+	</div>
+
+	<div class="bodycontainer scrollable">
+		<table class="table table-hover table-striped table-scrollable" style="width:300px; float:right; clear:right; 
+				margin-right: 2%; margin-top: 2%; " role="grid" aria-describedby = "example_info" >
+		        <thead>
+		            <tr role="row">
+		                <th class = "select-checkbox" rowspan="1" colspan="1" aria-label style="width:0px;"></th>
+		                <th class=>Course</th>
+		                <th>Title</th>
+		                <th>Credit</th>
+		                <th></th>
+		                <th></th>
+		            </tr>
+		        </thead>
+		       {% render_table course %}
+		</table>	
+
+	</div>
+
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

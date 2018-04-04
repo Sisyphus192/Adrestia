@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import dj_database_url
 
+DJANO_TABLES2_TEMPLATE = 'django_tables2/bootstrap.html'
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -78,12 +80,12 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6vvol0psn7p35',
-        'USER': 'hazjgxogecdryo',
-        'PASSWORD': '524750f8e0e26313b5b5c2391be6861df6d44010de842b742efe881e30672973',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'adrestiaDB',
+        'USER': 'root',
+        'PASSWORD': '961008',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '3308'
     }
 }
 
@@ -127,4 +129,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR , 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'))
+

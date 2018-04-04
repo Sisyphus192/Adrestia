@@ -6,9 +6,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'adrestiaDB',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '961008',
         'HOST': 'localhost',
-        'PORT': '3306'
+        'PORT': '3308'
     }
 }
 

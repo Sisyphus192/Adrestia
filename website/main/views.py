@@ -10,5 +10,5 @@ def index(request):
     return render(request, 'main/home.html')
 
 def course(request):
-    table = CourseTable(Courses.objects.filter(crse=3170))
-    return render(request, 'main/course.html', {'course':table})
+    table = CourseTable(Courses.objects.filter(subject='APPM'))
+    return render(request, 'main/fcq_Natnael.html', {'course':table})
