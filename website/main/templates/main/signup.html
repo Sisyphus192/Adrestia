@@ -28,21 +28,22 @@
 
 <form action="./action_page.php"  id= "userform">
 	<h1 style="background-color: black; color: white; padding: 20px;"> Enter Information: </h1>
-	<br> Enter User Id </h5><br>
-	<input type="text" name="user id"> <br><br>
-
-	<br>Enter Email Address</h5><br>
-	<input type="text" name="Email Address" >
-	<br><br>
-	<br>Enter Password</h5> <br>
-	<input type="text" name="Password">
-	<br><br>
-
-	<br>Enter Password Again</h5> <br>
-	<input type="text" name="Password">
-	<br><br>
-
-	 <input type="submit" id="submit">
+	<h2>Sign up</h2>
+	<form method="post">
+		{% csrf_token %}
+		{% for field in form %}
+		  <p>
+		    {{ field.label_tag }} <br>
+		    {{ field }}
+		    {% if field.help_text %}
+		      <small style="color: grey">{{ field.help_text }}</small>
+		    {% endif %}
+		    {% for error in field.errors %}
+		      <p style="color: red"> {{ error }} </p>
+	            {% endfor %}
+		  </p>
+		{% endfor %}
+		<button type="submit" id="submit">Sign up</button>
 
 
 </form>
