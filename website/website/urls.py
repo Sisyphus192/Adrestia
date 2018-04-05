@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from main.views import course, FCQloginpage, createAccount
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', FCQloginpage),
+    path('', auth_views.login, name='login'),
     path('course/', course),
 #    path('main/', include('main.urls')),
     path('createAccount/', createAccount)
