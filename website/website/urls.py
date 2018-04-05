@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from main.views import course, FCQloginpage, createAccount
+from main.views import course, FCQloginpage, signup
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -23,7 +23,7 @@ urlpatterns = [
     path('', auth_views.login, name='login'),
     path('course/', course),
 #    path('main/', include('main.urls')),
-    path('createAccount/', createAccount)
+    path('createAccount/', signup, name='signup')
 #    path('admin/', admin.site.urls),
 ]
 
