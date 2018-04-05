@@ -18,8 +18,8 @@ def course(request):
 
 
 #to pull create account page
-def createAccount(request):
-    return render(request, 'main/createAccount.html')
+#def createAccount(request):
+#    return render(request, 'main/createAccount.html')
 	
 def signup(request):
     if request.method == 'POST':
@@ -33,4 +33,4 @@ def signup(request):
             return redirect('home')
     else:
         form = SignUpForm()
-    return render(request, 'signup.html', {'form':form})
+    return render(request, 'main/signup.html', {'form':form})
