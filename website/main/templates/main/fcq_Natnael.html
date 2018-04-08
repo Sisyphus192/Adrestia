@@ -8,35 +8,25 @@
         <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}" type="text/css" />
   <link rel="stylesheet" href="{% static 'main/css/fcq_Natnael.css' %}" type="text/css" />
 
-    <title>Bootstrap Grid System!</title>
+    <title>Course lists</title>
 
   </head>
   <body>
-    <div class="dropdown_courses" style="float:right; margin-right: 2%; margin-top: 2%;" >
+    <div class="dropdown_courses" style=" float:right;margin-right: 2%; margin-top: 2%;" >
   		<button class="dropbtn">SELECT COURSE</button>
   		<div class="dropdown-content">
     		<a href="#">Course 1</a>
     		<a href="#">Course 2</a>
     		<a href="#">Course 3</a>
   		</div>
+
 	</div>
+	
 
-	<div class="bodycontainer scrollable">
-		<table class="table table-hover table-striped table-scrollable" style="width:300px; float:right; clear:right; 
-				margin-right: 2%; margin-top: 2%; " role="grid" aria-describedby = "example_info" >
-		        <thead>
-		            <tr role="row">
-		                <th class = "select-checkbox" rowspan="1" colspan="1" aria-label style="width:0px;"></th>
-		                <th class=>Course</th>
-		                <th>Title</th>
-		                <th>Credit</th>
-		                <th></th>
-		                <th></th>
-		            </tr>
-		        </thead>
-		       {% render_table course %}
-		</table>	
+	<div class="bodycontainer" style="height:500px;width: 250px; float:right;clear:right; margin-right: 2%; margin-top: 2%; overflow: scroll;">  
 
+		   {% render_table course %}
+		
 	</div>
 
 
