@@ -45,30 +45,24 @@
     background-color: #3e8e41;
 }
 
-.bodycontainer {
-  height: 25px
-  width: 300px;
-  margin: 0;
-}
 
 .table-scrollable {
   margin: 0px;
   padding: 0px;
 }
+.table-course_list{
 
-
-
-input[type="checkbox"]{
-  margin-top: 0;
-  line-height: normal;
+}
+#foo1{
+  margin-bottom: 15px;
+}
+#foo2{
+  padding: 0 15px 0 15px;
+}
+#foo3{
+  padding: 50px;
 }
 
-
-
-table{
- height:300px;              // <-- Select the height of the table
-}
-tbody{
-  overflow-y: scroll;      
-  height: 200px;            //  <-- Select the height of the body
+.subject{
+  margin-bottom: 100px;
 }
