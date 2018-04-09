@@ -15,7 +15,6 @@ class Courses(models.Model):
     challenge = models.FloatField(db_column='Challenge', blank=True, null=True)  # Field name made lowercase.
     howmuchlearned = models.FloatField(db_column='HowMuchLearned', blank=True, null=True)  # Field name made lowercase.
     crstitle = models.TextField(db_column='CrsTitle', blank=True, null=True)  # Field name made lowercase.
-    crse_id = models.IntegerField(primary_key=True)
 
     class Meta:
         managed = False
