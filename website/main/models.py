@@ -47,4 +47,4 @@ class Courses(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'courses'
+        db_table = 'simplified_courses'
