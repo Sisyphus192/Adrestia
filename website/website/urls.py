@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from main.views import course, FCQloginpage, signup
+from main.views import course, signup
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [

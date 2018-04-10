@@ -9,8 +9,8 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm
 
 # Create your views here.
-def FCQloginpage(request):
-    return render(request, 'main/FCQloginpage.html')
+#def FCQloginpage(request):
+#    return render(request, 'main/FCQloginpage.html')
 
 def course(request):
     table = CourseTable(Courses.objects.filter(crse=3170))
@@ -30,7 +30,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username = username, password = raw_password)
             login(request, user)
-            return redirect('')
+            return redirect('/')
     else:
         form = SignUpForm()
     return render(request, 'main/signup.html', {'form':form})
