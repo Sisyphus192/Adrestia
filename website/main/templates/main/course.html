@@ -13,7 +13,13 @@
   <link rel="stylesheet" href="{% static 'main/css/fcq_Natnael.css' %}" type="text/css" />
 
     <title>Course lists</title>
-
+  <script>
+	  $( function() {
+		  $( "#sortable1, #sortable2" ).sortable({
+			  connectWith: ".bodycontainer"
+		  }).disableSelection();
+	  } );
+  </script>
   </head>
   <body>
     <div class="dropdown_courses" style=" float:right;margin-right: 2%; margin-top: 2%;" >
@@ -27,13 +33,13 @@
 	</div>
 	
 
-	<div class="bodycontainer" style="height:500px;width: 250px; float:right;clear:right; margin-right: 2%; margin-top: 2%; overflow: scroll;">  
+	<div id="sortable1" class="bodycontainer" style="height:500px;width: 250px; float:right;clear:right; margin-right: 2%; margin-top: 2%; overflow: scroll;">  
 
 		   {% render_table course %}
 		
 	</div>
 
-	<div class="bodycontainer" style="height:500px;width: 250px; float:left;clear:right; margin-right: 2%; margin-top: 2%; overflow: scroll;">
+	<div id="sortable2" class="bodycontainer" style="height:500px;width: 250px; float:left;clear:right; margin-right: 2%; margin-top: 2%; overflow: scroll;">
 		{% render_table course %}
 	</div>
 
