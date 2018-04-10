@@ -46,4 +46,33 @@ dfPHYS = df.loc[:,['Subject','Crse','CrsTitle','CourseOverall','HoursPerWkInclCl
 allClasses = [dfAPPM,dfASEN,dfCHEN,dfCSCI,dfCVEN,dfECEN,dfMATH,dfMCEN,dfPHYS]
 classes = pd.concat(allClasses)
 classes = classes.dropna()
-classes.to_sql(con=engine, name='simplified_courses', if_exists='replace', index=True)
+hours = classes['HoursPerWkInclClass'].tolist()
+#print(hours)
+newHours = []
+for i in range(len(hours)):
+    temp = hours[i].split('-')
+    #print(temp)
+    if len(temp) > 1:
+        temp = (int(temp[0])+int(temp[1]))/2
+        newHours.append(temp)
+    else:
+        temp = temp[0].replace('+','')
+        temp = int(temp)
+        newHours.append(temp)
+#print(newHours)
+n = classes.columns[4]
+classes.drop(n, axis = 1, inplace = True)
+classes[n] = newHours
+classes['Crse'] = classes['Subject'].map(str)+classes['Crse'].map(str)
+classes = classes.loc[:,['Crse','CrsTitle','CourseOverall','HoursPerWkInclClass','Challenge','HowMuchLearned']]
+#classes.drop(classes.column[0], a)
+newClasses = classes.groupby(['Crse','CrsTitle']).mean()
+#print(newClasses)
+newClasses = newClasses.add_suffix('_Count').reset_index()
+newClasses.columns = ['Crse','CrsTitle','CourseOverall','HoursPerWkInclClass','Challenge','HowMuchLearned']
+newClasses['CrseID'] = newClasses.index
+#newClasses = classes.loc[:,['CrseID','Crse','CrsTitle','CourseOverall','HoursPerWkInclClass','Challenge','HowMuchLearned']]
+#newClasses.head(10000)
+#classes.head(20000)
+
+newClasses.to_sql(con=engine, name='courses', if_exists='replace', index=True)
