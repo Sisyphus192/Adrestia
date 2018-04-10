@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create Account</title>
+</head>
+<body>
+	<style type="text/css">
+		input {
+			width: 20%;
+			margin: black;
+			padding: 10px;
+		}
+		#submit {
+			width: 10%;
+			padding: 20px;
+			background-color: green;
+			color:white;
+		}
+		body{
+
+			background-color: grey  ;
+		}
+
+	</style>
+
+
+<form method="post">
+	<h1 style="background-color: black; color: white; padding: 20px;"> Enter Information: </h1>
+	<h2>Sign up</h2>
+	<form method="post">
+		{% csrf_token %}
+		{% for field in form %}
+		  <p>
+		    {{ field.label_tag }} <br>
+		    {{ field }}
+		    {% if field.help_text %}
+		      <small style="color: grey">{{ field.help_text }}</small>
+		    {% endif %}
+		    {% for error in field.errors %}
+		      <p style="color: red"> {{ error }} </p>
+	            {% endfor %}
+		  </p>
+		{% endfor %}
+		<button type="submit" id="submit">Sign up</button>
+
+
+</form>
+
+</body>
+</html>

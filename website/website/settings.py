@@ -76,6 +76,7 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+<<<<<<< HEAD:website/website/settings.py
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -97,6 +98,9 @@ DATABASES = {
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+=======
+DATABASES = {'default': dj_database_url.config(conn_max_age=500)}
+>>>>>>> 2de504f43a4cb4a778e0f93ec74189ef8dc1c01f:website/website/settings.py
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -135,4 +139,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR , 'staticfiles')
 STATIC_URL = '/static/'
+<<<<<<< HEAD:website/website/settings.py
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'))
+=======
+STATICFILES_DIRS = [(os.path.join(BASE_DIR, 'static'))]
+>>>>>>> 2de504f43a4cb4a778e0f93ec74189ef8dc1c01f:website/website/settings.py

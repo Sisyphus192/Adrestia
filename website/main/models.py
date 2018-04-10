@@ -8,6 +8,7 @@
 from django.db import models
 
 class Courses(models.Model):
+<<<<<<< HEAD
     yearterm = models.BigIntegerField(db_column='Yearterm', blank=True, null=True)  # Field name made lowercase.
     subject = models.TextField(db_column='Subject', blank=True, null=True)  # Field name made lowercase.
     crse = models.BigIntegerField(db_column='Crse', blank=True, null=True)  # Field name made lowercase.
@@ -48,3 +49,17 @@ class Courses(models.Model):
     class Meta:
         managed = False
         db_table = 'courses'
+=======
+    subject = models.TextField(db_column='Subject', blank=True, null=True)  # Field name made lowercase.
+    crse = models.BigIntegerField(db_column='Crse', blank=True, null=True)  # Field name made lowercase.
+    courseoverall = models.FloatField(db_column='CourseOverall', blank=True, null=True)  # Field name made lowercase.
+    hoursperwkinclclass = models.TextField(db_column='HoursPerWkInclClass', blank=True, null=True)  # Field name made lowercase.
+    challenge = models.FloatField(db_column='Challenge', blank=True, null=True)  # Field name made lowercase.
+    howmuchlearned = models.FloatField(db_column='HowMuchLearned', blank=True, null=True)  # Field name made lowercase.
+    crstitle = models.TextField(db_column='CrsTitle', blank=True, null=True)  # Field name made lowercase.
+    index = models.AutoField(db_column='index', primary_key=True)
+
+    class Meta:
+        managed = False
+        db_table = 'simplified_courses'
+>>>>>>> 2de504f43a4cb4a778e0f93ec74189ef8dc1c01f
