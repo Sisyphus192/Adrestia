@@ -13,7 +13,7 @@ from .forms import SignUpForm
 #    return render(request, 'main/FCQloginpage.html')
 
 def course(request):
-    table = CourseTable(Courses.objects.filter(crse="3170"))
+    table = CourseTable(Courses.objects.filter(crse="APPM3170"))
     return render(request, 'main/course.html', {'course':table})
 
 
