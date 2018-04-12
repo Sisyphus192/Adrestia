@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Sortable - Connect lists</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <style>
+    #sortable1, #sortable2, #sortable3 {
+      border: 1px solid #eee;
+      min-width: 150px;
+      min-height: 40px;
+      list-style-type: none;
+      margin: 0;
+      padding: 5px 0 0 0;
+      float: left;
+      margin-right: 10px;
+    }
+    #sortable1 li, #sortable2 li, #sortable3 li {
+      margin: 0 5px 5px 5px;
+      padding: 5px;
+      font-size: 1.2em;
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $( function() {
+        $( "#sortable1, #sortable2, #sortable3" ).sortable({
+          connectWith: ".connectedSortable"
+        }).disableSelection();
+      } );
+    </script>
+  </head>
+
+  <body>
+
+  <ul id="sortable1" class="connectedSortable">
+    <li class="ui-state-default">
+      <tr>
+        <td style="width: 32px;">1973</td>
+        <td style="width: 199px;">Breakfast of Champions</td>
+        <td style="width: 44px;">C</td>
+      </tr>
+    </li>
+    <li class="ui-state-default">
+      <tr>
+        <td style="width: 32px;">1952</td>
+        <td style="width: 199px;">Player Piano</td>
+        <td style="width: 44px;">B</td>
+      </tr>
+    </li>
+  </ul>
+
+  <ul id="sortable2" class="connectedSortable">
+    <li class="ui-state-highlight">
+      <tr>
+        <td style="width: 32px;">1969</td>
+        <td style="width: 199px;">Slaughterhouse-Five</td>
+        <td style="width: 44px;">A+</td>
+      </tr>
+    </li>
+    <li class="ui-state-highlight">
+      <tr>
+        <td style="width: 32px;">1965</td>
+        <td style="width: 199px;">God Bless You, Mr. Rosewater</td>
+        <td style="width: 44px;">A</td>
+      </tr>
+    </li>
+    <li class="ui-state-highlight">
+      <tr>
+        <td style="width: 32px;">1963</td>
+        <td style="width: 199px;">Cat's Cradle</td>
+        <td style="width: 44px;">A+</td>
+      </tr>
+    </li>
+  </ul>
+
+  <ul id="sortable3" class="connectedSortable">
+    <li class="ui-state-highlight">
+      <tr>
+        <td style="width: 32px;">1963</td>
+        <td style="width: 199px;">Cat's Cradle</td>
+        <td style="width: 44px;">A+</td>
+      </tr>
+    </li>
+  </ul>
+
+  </body>
+</html>
