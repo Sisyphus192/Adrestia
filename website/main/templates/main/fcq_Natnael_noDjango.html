@@ -12,10 +12,21 @@
 
     <title>Bootstrap Grid System!</title>
 
+    <style>
+	#instruction{
+		background-color: #99d6ff;
+		width: 30%;
+		height: 40%;
+		border: 1px solid black;
+		padding: 10px;
+	
+
+	}
+</style>
   </head>
   <body style= "background-color: #DAF7A6">
     <!-- insert your code here -->
-    <div class="dropdown" style=" float:right;clear:right; margin-top: 2%;margin-right: 2% " >
+    <div class="dropdown" style="  margin-top: 2%;margin-right: 2%;float:right;clear:left" >
   		<button class="dropbtn">SELECT COURSE</button>
   		<div class="dropdown-content">
     		<a href="#">Course 1</a>
@@ -31,7 +42,7 @@
 		
     </div>
 
-    <div id="Optimizing_Fall" class= "Optimizing_container" style = "border: groove; height:280px; width: 500px;float:right;clear:right">
+    <div id="Optimizing_Fall" class= "Optimizing_container" style = "border: groove; height:280px; width: 500px;float:right;clear:right;margin-right: 15% ">
           <table class="table" >
               <thead class="thead-dark">
                 <tr>
@@ -63,11 +74,10 @@
                 
               </tbody>
             </table>
-
     </div>
 
-     <div id="Optimizing_Spring" class= "Optimizing_container" style = "border: groove; height:280px; width: 500px;float:right">
-        <table class="table" >
+     <div id="Optimizing_Fall" class= "Optimizing_container" style = "border: groove; height:280px; width: 500px;float:right;clear:left">
+          <table class="table" >
               <thead class="thead-dark">
                 <tr>
                   <th scope="col"></th>
@@ -98,46 +108,27 @@
                 
               </tbody>
             </table>
-     </div>
-
-     <div id="Optimizing_Spring" class= "Optimizing_container" style = "border: groove; height:280px; width: 500px">
-        <table class="table" >
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Course</th>
-                  <th scope="col">Class</th>
-                  <th scope="col">Credit</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr> 
-              </tbody>
-            </table>
-            <button class="btn optimize">OPTIMIZE</button>
-            <div class="slidecontainer">
+    </div>
+    
+      <button class="btn optimize">OPTIMIZE</button>
+            <div class="slidecontainer"  >
     			<h4>RANGE</h4>
   				<input type="range" min="1" max="100" value="50" class="slider" id="myRange">
 			</div>
-     </div>
+        
+    <div id= "instruction" >
+		
+		Instruction: <br>
+		<br>
+		Below list are the things this website can do for you.
 
-   
+			<ul>
+			  <li>Calculate the level of difficulty of your semester</li>
+			  <li>Claculate the total amount hours needed each week for each course</li>
+			  <li>Add and drop classes from course list to semester </li>
+			  <li>Drag and drop classes between semester if needed  </li>
+			  
+			</ul>
+	</div>
   </body>
 </html>
