@@ -71,7 +71,7 @@ newClasses = classes.groupby(['Crse','CrsTitle']).mean()
 newClasses = newClasses.add_suffix('_Count').reset_index()
 newClasses.columns = ['Crse','CrsTitle','CourseOverall','HoursPerWkInclClass','Challenge','HowMuchLearned']
 newClasses['CrseID'] = newClasses.index
-#newClasses = classes.loc[:,['CrseID','Crse','CrsTitle','CourseOverall','HoursPerWkInclClass','Challenge','HowMuchLearned']]
+newClasses = newClasses.loc[:,['CrseID','Crse','CrsTitle','CourseOverall','HoursPerWkInclClass','Challenge','HowMuchLearned']]
 #newClasses.head(10000)
 #classes.head(20000)
 
