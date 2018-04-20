@@ -34,3 +34,11 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'main/signup.html', {'form':form})
+
+
+def root(request):
+    if request.user.is_authenticated:
+        return render(request, 'fcq_Natnael_noDjango.html')
+    else:
+        return redirect('login/')
+
