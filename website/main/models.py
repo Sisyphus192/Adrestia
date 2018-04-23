@@ -20,3 +20,7 @@ class Courses(models.Model):
     class Meta:
         managed = False
         db_table = 'courses'
+
+class Optimize(models.Model):
+    HrsPerWeek = models.PositiveSmallIntegerField()
+    Challenge = models.PositiveSmallIntegerField()
