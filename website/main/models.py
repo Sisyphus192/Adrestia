@@ -28,3 +28,12 @@ class SiteUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     challenge = models.PositiveSmallIntegerField()
     hrsPerWeek = models.PositiveSmallIntegerField()
+
+@receiver(post_save, sender=User)
+def create_SiteUser(sender, instance, created, **kwargs):
+    if created:
+        SiteUser.object.create(user=instance)
+
+@reciever(post_save, sender=User)
+def save_SiteUser(sender, instance, **kwargs):
+    instance.profile.save()
