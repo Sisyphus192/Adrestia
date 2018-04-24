@@ -27,4 +27,4 @@ class Courses(models.Model):
 class SiteUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     challenge = models.PositiveSmallIntegerField()
-    HrsPerWeek = models.PositiveSmallIntegerField()
+    hrsPerWeek = models.PositiveSmallIntegerField()

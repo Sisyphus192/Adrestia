@@ -14,5 +14,5 @@ class SiteUserForm(forms.ModelForm):
 
     class Meta:
         model = SiteUser
-        fields = ('HrsPerWeek', 'Challenge',)
+        fields = ('hrsPerWeek', 'challenge',)
 
