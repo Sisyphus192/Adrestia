@@ -37,10 +37,10 @@
       $(function() {
       $("#sortable1, #sortable2, #sortable3").sortable();
       $("#sortable1, #sortable2, #sortable3").disableSelection();
-
       $("#sortable1, #sortable2, #sortable3").sortable({
           stop: function( ) {
-            alert("Dropped");
+            // alert("Dropped");
+            // Update selected classes
           }
         });
       });
