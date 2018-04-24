@@ -16,7 +16,8 @@ def course(request):
     table = CourseTable(Courses.objects.filter(crse="3170"))
     challenge = SiteUser['challenge']
     hrsPerWeek = SiteUser['hrsPerWeek']
-    return render(request, 'main/course.html', {'course':table}, {'challenge':challenge},{'hrsPerWeek':hrsPerWeek})
+    subject = Courses.objects.values("subject").distinct()
+    return render(request, 'main/course.html', {'course':table, 'subject':subject, 'challenge':challenge, 'hrsPerWeek':hrsPerWeek})
 
 
 #to pull create account page

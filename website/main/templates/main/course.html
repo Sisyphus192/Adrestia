@@ -26,9 +26,9 @@
     <div class="dropdown_courses" style=" float:right;margin-right: 2%; margin-top: 2%;" >
   		<button class="dropbtn">SELECT COURSE</button>
   		<div class="dropdown-content">
-    		<a href="#">Course 1</a>
-    		<a href="#">Course 2</a>
-    		<a href="#">Course 3</a>
+    		{% for s in subject %}
+    		<a href="#">{{s}}</a>
+    		{% endfor %}
   		</div>
 
 	  </div>
