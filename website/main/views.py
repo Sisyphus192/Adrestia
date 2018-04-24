@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django_tables2 import RequestConfig
 from .models import Courses, SiteUser
 from .tables import CourseTable
-import pandas as pd
+#import pandas as pd
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm
@@ -14,10 +14,21 @@ from .forms import SignUpForm
 
 def course(request):
     table = CourseTable(Courses.objects.filter(crse="3170"))
+<<<<<<< HEAD
     challenge = SiteUser['challenge']
     hrsPerWeek = SiteUser['hrsPerWeek']
     subject = Courses.objects.values("subject").distinct()
     return render(request, 'main/course.html', {'course':table, 'subject':subject, 'challenge':challenge, 'hrsPerWeek':hrsPerWeek})
+=======
+<<<<<<< HEAD
+=======
+
+    if request.method == 'POST':
+        challenge = request.POST['challenge']
+        workload = request.POST['workload']
+>>>>>>> cbcab726d2a64510c01d0e5fb625cd0ec60fcb34
+    return render(request, 'main/course.html', {'course':table})
+>>>>>>> Nati
 
 
 #to pull create account page

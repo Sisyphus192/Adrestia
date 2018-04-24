@@ -23,7 +23,6 @@ class Courses(models.Model):
         managed = False
         db_table = 'courses'
 
-
 class SiteUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     challenge = models.PositiveSmallIntegerField()
@@ -37,3 +36,4 @@ def create_SiteUser(sender, instance, created, **kwargs):
 @reciever(post_save, sender=User)
 def save_SiteUser(sender, instance, **kwargs):
     instance.profile.save()
+
