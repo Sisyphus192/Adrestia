@@ -13,7 +13,11 @@ from .forms import SignUpForm
 #    return render(request, 'main/FCQloginpage.html')
 
 def course(request):
-    table = CourseTable(Courses.objects.filter(crse="APPM3170"))
+    table = CourseTable(Courses.objects.filter(crse="3170"))
+
+    if request.method == 'POST':
+        challenge = request.POST['challenge']
+        workload = request.POST['workload']
     return render(request, 'main/course.html', {'course':table})
 
 
