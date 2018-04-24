@@ -22,9 +22,12 @@ class Courses(models.Model):
     class Meta:
         managed = False
         db_table = 'courses'
+#<<<<<<< HEAD
+#=======
 
 
 class SiteUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     challenge = models.PositiveSmallIntegerField()
     hrsPerWeek = models.PositiveSmallIntegerField()
+#>>>>>>> cbcab726d2a64510c01d0e5fb625cd0ec60fcb34
