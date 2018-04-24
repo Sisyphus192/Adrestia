@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import dj_database_url
+#import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -76,8 +76,14 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {'default': dj_database_url.config(conn_max_age=500)}
-
+# postgres://wsdfgnifhslpkg:213e54050a52fe849116c72565c1b870c78c800a57c9f56c5c98618a5202e324@ec2-54-235-109-37.compute-1.amazonaws.com:5432/deo6hufqq9vpo0
+DATABASES = {'default': {
+		'ENGINE': 'django.db.backends.postgresql_psycopg2',
+		'NAME': 'deo6hufqq9vpo0',
+		'USER': 'wsdfgnifhslpkg',
+		'PASSWORD': '213e54050a52fe849116c72565c1b870c78c800a57c9f56c5c98618a5202e324',
+		'HOST': 'ec2-54-235-109-37.compute-1.amazonaws.com',
+		'PORT':5432}}
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 

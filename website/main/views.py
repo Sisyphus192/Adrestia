@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django_tables2 import RequestConfig
 from .models import Courses
 from .tables import CourseTable
-import pandas as pd
+#import pandas as pd
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm
@@ -13,7 +13,7 @@ from .forms import SignUpForm
 #    return render(request, 'main/FCQloginpage.html')
 
 def course(request):
-    table = CourseTable(Courses.objects.filter(crse=3170))
+    table = CourseTable(Courses.objects.filter(crse="3170"))
     return render(request, 'main/course.html', {'course':table})
 
 

@@ -9,7 +9,7 @@ from django.db import models
 
 class Courses(models.Model):
     subject = models.TextField(db_column='Subject', blank=True, null=True)  # Field name made lowercase.
-    crse = models.BigIntegerField(db_column='Crse', blank=True, null=True)  # Field name made lowercase.
+    crse = models.TextField(db_column='Crse', blank=True, null=True)  # Field name made lowercase.
     courseoverall = models.FloatField(db_column='CourseOverall', blank=True, null=True)  # Field name made lowercase.
     hoursperwkinclclass = models.TextField(db_column='HoursPerWkInclClass', blank=True, null=True)  # Field name made lowercase.
     challenge = models.FloatField(db_column='Challenge', blank=True, null=True)  # Field name made lowercase.
@@ -19,4 +19,4 @@ class Courses(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'simplified_courses'
+        db_table = 'courses'
