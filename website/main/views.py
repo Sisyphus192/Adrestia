@@ -14,10 +14,10 @@ from .forms import SignUpForm
 
 def course(request):
     table = CourseTable(Courses.objects.filter(crse="3170"))
-    challenge = SiteUser['challenge']
-    hrsPerWeek = SiteUser['hrsPerWeek']
+#    challenge = SiteUser['challenge']
+#    hrsPerWeek = SiteUser['hrsPerWeek']
     subject = Courses.objects.values("subject").distinct()
-    return render(request, 'main/course.html', {'course':table, 'subject':subject, 'challenge':challenge, 'hrsPerWeek':hrsPerWeek})
+    return render(request, 'main/course.html', {'course':table, 'subject':subject})
 
 #to pull create account page
 #def createAccount(request):
