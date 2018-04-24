@@ -57,7 +57,7 @@ def signup(request):
 
 def root(request):
     if request.user.is_authenticated:
-        return render(request, 'fcq_Natnael_noDjango.html')
+        return render(request, 'course/')
     else:
         return redirect('login/')
 
