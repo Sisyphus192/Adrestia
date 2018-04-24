@@ -19,7 +19,7 @@ def course(request):
     if request.method == 'POST':
         challenge = request.POST['challenge']
         workload = request.POST['workload']
-    return render(request, 'main/course.html', {'course':table})
+    return render(request, 'main/course.html', {'course':table, 'subject':subject})
 
 
 #to pull create account page
