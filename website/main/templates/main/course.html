@@ -10,19 +10,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     {% load staticfiles %}
         <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}" type="text/css" />
-  <link rel="stylesheet" href="{% static 'main/css/fcq_Natnael_noDjango.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'main/css/fcq_Natnael.css' %}" type="text/css" />
 
     <title>Course lists</title>
-
-    <style>
-    #instruction{
-      background-color: #99d6ff;
-      width: 30%;
-      height: 40%;
-      border: 1px solid black;
-      padding: 10px;
-    }
-    </style>
   <script>
     $( function() {
       $( "#sortable1, #sortable2" ).sortable({
@@ -31,33 +21,18 @@
     } );
   </script>
   </head>
-<<<<<<< HEAD
   <body>
     <h1>
     <div class="dropdown_courses" style=" float:right;margin-right: 2%; margin-top: 2%;" >
-  		<button class="dropbtn">SELECT COURSE</button>
-  		<div class="dropdown-content">
-    		{% for s in subject %}
-    		<a href="#">{{s}}</a>
-    		{% endfor %}
-  		</div>
-
-	  </div>
-    <form method="post" action="/data">
-=======
-  <body style= "background-color: #DAF7A6">
-    <div class="dropdown" style="  margin-top: 2%;margin-right: 2%;float:right;clear:left" >
       <button class="dropbtn">SELECT COURSE</button>
       <div class="dropdown-content">
-        <a href="#">Course 1</a>
-        <a href="#">Course 2</a>
-        <a href="#">Course 3</a>
+        {% for s in subject %}
+        <a href="#">{{s}}</a>
+        {% endfor %}
       </div>
 
-    
     </div>
-    <form method="post">
->>>>>>> Nati
+    <form method="post" action="/data">
       {% csrf_token %}
       <div class="slidecontainer" style="float:left">
         <p>Select your desired semester challenge level</p>
@@ -73,101 +48,15 @@
   
 
 
-   <div id="sortable1" class="bodycontainer" style="height:300px;width: 250px;  margin-right: 2%; margin-top: 2%; overflow: scroll;float:right;clear:right">
+  <div id="sortable1" class="bodycontainer" style="height:500px;width: 250px; float:right;clear:right; margin-right: 2%; margin-top: 2%; overflow: scroll;">  
 
        {% render_table course %}
     
   </div>
 
-  <div id="Optimizing_Fall" class= "Optimizing_container" style = "border: groove; height:280px; width: 500px;float:right;clear:right;margin-right: 15% ">
-          <table class="table" >
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Course</th>
-                  <th scope="col">Class</th>
-                  <th scope="col">Credit</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                
-              </tbody>
-            </table>
-    </div>
-
-    <div id="Optimizing_Fall" class= "Optimizing_container" style = "border: groove; height:280px; width: 500px;float:right;clear:left">
-          <table class="table" >
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Course</th>
-                  <th scope="col">Class</th>
-                  <th scope="col">Credit</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                
-              </tbody>
-            </table>
-    </div>
-    
-    <button class="btn optimize" style="float:right" >OPTIMIZE</button>
-    <div class="slidecontainer" style="float:right" >
-      <h4>RANGE</h4>
-      <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  <div id="sortable2" class="bodycontainer" style="height:500px;width: 250px; float:left;clear:right; margin-right: 2%; margin-top: 2%; overflow: scroll;">
+    {% render_table course %}
   </div>
-        
-    <div id= "instruction" >
-    
-    Instruction: <br>
-    <br>
-    Below list are the things this website can do for you.
-
-      <ul>
-        <li>Calculate the level of difficulty of your semester</li>
-        <li>Claculate the total amount hours needed each week for each course</li>
-        <li>Add and drop classes from course list to semester </li>
-        <li>Drag and drop classes between semester if needed  </li>
-        
-      </ul>
-  </div>
-
 
 
   </body>
