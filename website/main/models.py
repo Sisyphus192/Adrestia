@@ -23,9 +23,6 @@ class Courses(models.Model):
         managed = False
         db_table = 'courses'
 
-class Optimize(models.Model):
-    HrsPerWeek = models.PositiveSmallIntegerField()
-    Challenge = models.PositiveSmallIntegerField()
 
 class SiteUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
