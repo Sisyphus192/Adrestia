@@ -14,6 +14,13 @@ from .forms import SignUpForm
 
 def course(request):
     table = CourseTable(Courses.objects.filter(crse="3170"))
+#<<<<<<< HEAD
+#=======
+
+    if request.method == 'POST':
+        challenge = request.POST['challenge']
+        workload = request.POST['workload']
+#>>>>>>> cbcab726d2a64510c01d0e5fb625cd0ec60fcb34
     return render(request, 'main/course.html', {'course':table})
 
 
@@ -34,3 +41,11 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'main/signup.html', {'form':form})
+
+
+def root(request):
+    if request.user.is_authenticated:
+        return render(request, 'fcq_Natnael_noDjango.html')
+    else:
+        return redirect('login/')
+
