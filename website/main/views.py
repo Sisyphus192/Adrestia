@@ -14,6 +14,10 @@ from .forms import SignUpForm
 
 def course(request):
     table = CourseTable(Courses.objects.filter(crse="3170"))
+
+    if request.method == 'POST':
+        challenge = request.POST['challenge']
+        workload = request.POST['workload']
     return render(request, 'main/course.html', {'course':table})
 
 

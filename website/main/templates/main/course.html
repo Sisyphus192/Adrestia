@@ -30,8 +30,22 @@
     		<a href="#">Course 3</a>
   		</div>
 
-	</div>
+	  </div>
+    <form method="post">
+      {% csrf_token %}
+      <div class="slidecontainer" style="float:left">
+        <p>Select your desired semester challenge level</p>
+        <input type="range" class="form-control" min="1" max="6" value="3" id="challenge_slider" name="challenge">
+
+        <p>Select your desired semester work load</p>
+        <input type="range" class="form-control" min="1" max="16" value="8" id="workload_slider" name="workload">
+      </div>
+      <button type="submit" class="btn btn-success">Post</button>
+    </form>
+
+
 	
+
 
 	<div id="sortable1" class="bodycontainer" style="height:500px;width: 250px; float:right;clear:right; margin-right: 2%; margin-top: 2%; overflow: scroll;">  
 
