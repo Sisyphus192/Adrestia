@@ -22,6 +22,7 @@
   </script>
   </head>
   <body>
+    <h1>
     <div class="dropdown_courses" style=" float:right;margin-right: 2%; margin-top: 2%;" >
   		<button class="dropbtn">SELECT COURSE</button>
   		<div class="dropdown-content">
@@ -31,14 +32,14 @@
   		</div>
 
 	  </div>
-    <form method="post">
+    <form method="post" action="/data">
       {% csrf_token %}
       <div class="slidecontainer" style="float:left">
         <p>Select your desired semester challenge level</p>
-        <input type="range" class="form-control" min="1" max="6" value="3" id="challenge_slider" name="challenge">
+        <input type="range" class="form-control" min="1" max="6" value="{{ challenge }}" id="challenge_slider" name="challenge">
 
         <p>Select your desired semester work load</p>
-        <input type="range" class="form-control" min="1" max="16" value="8" id="workload_slider" name="workload">
+        <input type="range" class="form-control" min="1" max="16" value="{{ hrsPerWeek }}" id="workload_slider" name="hrsPerWeek">
       </div>
       <button type="submit" class="btn btn-success">Post</button>
     </form>

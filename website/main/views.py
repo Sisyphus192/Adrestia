@@ -1,7 +1,7 @@
 from django.views.generic import ListView
 from django.shortcuts import render, redirect
 from django_tables2 import RequestConfig
-from .models import Courses
+from .models import Courses, SiteUser
 from .tables import CourseTable
 import pandas as pd
 from django.contrib.auth import login, authenticate
@@ -14,17 +14,20 @@ from .forms import SignUpForm
 
 def course(request):
     table = CourseTable(Courses.objects.filter(crse="3170"))
-
-    if request.method == 'POST':
-        challenge = request.POST['challenge']
-        workload = request.POST['workload']
-    return render(request, 'main/course.html', {'course':table})
+    challenge = SiteUser['challenge']
+    hrsPerWeek = SiteUser['hrsPerWeek']
+    return render(request, 'main/course.html', {'course':table}, {'challenge':challenge},{'hrsPerWeek':hrsPerWeek})
 
 
 #to pull create account page
 #def createAccount(request):
 #    return render(request, 'main/createAccount.html')
-	
+
+def get_data(request):
+    if request.method == 'POST':
+        form = SiteUserForm(request.POST)
+        form.save()
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
