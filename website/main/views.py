@@ -15,7 +15,7 @@ from .forms import SignUpForm
 def course(request):
     table = CourseTable(Courses.objects.filter(crse="3170"))
 
-    subject = Courses.objects.values("Subject").distinct()
+    subject = Courses.objects.values("subject").distinct()
     if request.method == 'POST':
         challenge = request.POST['challenge']
         workload = request.POST['workload']
