@@ -14,22 +14,10 @@ from .forms import SignUpForm
 
 def course(request):
     table = CourseTable(Courses.objects.filter(crse="3170"))
-<<<<<<< HEAD
     challenge = SiteUser['challenge']
     hrsPerWeek = SiteUser['hrsPerWeek']
     subject = Courses.objects.values("subject").distinct()
     return render(request, 'main/course.html', {'course':table, 'subject':subject, 'challenge':challenge, 'hrsPerWeek':hrsPerWeek})
-=======
-<<<<<<< HEAD
-=======
-
-    if request.method == 'POST':
-        challenge = request.POST['challenge']
-        workload = request.POST['workload']
->>>>>>> cbcab726d2a64510c01d0e5fb625cd0ec60fcb34
-    return render(request, 'main/course.html', {'course':table})
->>>>>>> Nati
-
 
 #to pull create account page
 #def createAccount(request):
