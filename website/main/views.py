@@ -13,7 +13,7 @@ from .forms import SignUpForm
 #def FCQloginpage(request):
 #    return render(request, 'main/FCQloginpage.html')
 
-@login_required
+@login_required(login_url='/login')
 def course(request):
     table = CourseTable(Courses.objects.filter(crse="3170"))
 #    challenge = SiteUser['challenge']
@@ -25,10 +25,12 @@ def course(request):
 #def createAccount(request):
 #    return render(request, 'main/createAccount.html')
 
-def get_data(request):
-    if request.method == 'POST':
-        form = SiteUserForm(request.POST)
-        form.save()
+def get_challenge(request):
+    challenge = request.GET.get('challenge', None)
+
+def get_hrsPerWeek(request):
+    hrsPerWeek = request.GET.get('hrsPerWeek', None)
+
 
 def signup(request):
     if request.method == 'POST':
