@@ -24,7 +24,7 @@ class Courses(models.Model):
         db_table = 'courses'
 
 class SiteUser(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="site_user")
     challenge = models.PositiveSmallIntegerField()
     hrsPerWeek = models.PositiveSmallIntegerField()
 

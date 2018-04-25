@@ -12,6 +12,7 @@ from .forms import SignUpForm
 #def FCQloginpage(request):
 #    return render(request, 'main/FCQloginpage.html')
 
+@login_required
 def course(request):
     table = CourseTable(Courses.objects.filter(crse="3170"))
 #    challenge = SiteUser['challenge']
