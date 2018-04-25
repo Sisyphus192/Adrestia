@@ -25,7 +25,7 @@ urlpatterns = [
     path('course/', views.course),
 #    path('main/', include('main.urls')),
     path('signup/', views.signup, name='signup'),
-    url(r'^ajax/get_challenge/$', views.get_challenge, name='get_challenge') 
+    url(r'^ajax/get_challenge/$', views.get_challenge, name='get_challenge'), 
     url(r'^ajax/get_hrsPerWeek/$', views.get_hrsPerWeek, name='get_hrsPerWeek')
     #    path('admin/', admin.site.urls),
 ]
