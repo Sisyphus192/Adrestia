@@ -1,4 +1,5 @@
 from django.views.generic import ListView
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django_tables2 import RequestConfig
 from .models import Courses, SiteUser
