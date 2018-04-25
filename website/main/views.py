@@ -5,6 +5,7 @@ from .models import Courses, SiteUser
 from .tables import CourseTable
 #import pandas as pd
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm
 
