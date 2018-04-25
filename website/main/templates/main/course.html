@@ -32,9 +32,9 @@
       </div>
 
 
-    {% block javascript %}
+   
       <script>
-        $("#id_challenge").change(function () {
+        $("#challenge_slider").change(function () {
           var username = $(this).val();
 
           $.ajax({
@@ -50,7 +50,7 @@
 
         });
       </script>
-    {% endblock %}
+
 
     </div>
     <form method="post">
