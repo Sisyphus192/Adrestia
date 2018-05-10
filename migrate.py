@@ -3,19 +3,22 @@ import pandas as pd
 import subprocess
 import psycopg2
 import os
+import numpy as np
 
-proc = subprocess.Popen('heroku config:get DATABASE_URL -a adrestia', stdout=subprocess.PIPE, shell=True)
+proc = subprocess.Popen('heroku config:get DATABASE_URL -a adrestia2', stdout=subprocess.PIPE, shell=True)
 db_url = proc.stdout.read().decode('utf-8').strip() + '?sslmode=require'
 db_url = db_url[:8]+'ql'+db_url[8:]
 #DATABASE_URL = os.environ['DATABASE_URL']
 #print(DATABASE_URL)
 #print(db_url)
 #conn = psycopg2.connect(db_url)
-engine = create_engine(db_url)
+engine = create_engine(db_url)#'mysql://root:@localhost/adrestiadb')
 #df = pd.read_csv('data/APPM.csv')
 #print('hello')
 #df[:10].to_sql(con=engine, name='courses', if_exists='replace', index=True)
 #print('hello2')
+
+"""
 local_path = 'data/APPM.csv'
 df = pd.read_csv(local_path)
 dfAPPM = df.loc[:,['Subject','Crse','CrsTitle','CourseOverall','HoursPerWkInclClass','Challenge','HowMuchLearned']]
@@ -44,7 +47,56 @@ local_path = 'data/PHYS.csv'
 df = pd.read_csv(local_path)
 dfPHYS = df.loc[:,['Subject','Crse','CrsTitle','CourseOverall','HoursPerWkInclClass','Challenge','HowMuchLearned']]
 allClasses = [dfAPPM,dfASEN,dfCHEN,dfCSCI,dfCVEN,dfECEN,dfMATH,dfMCEN,dfPHYS]
-classes = pd.concat(allClasses)
+"""
+allClasses = []
+for file in os.listdir("./data"):
+    if file.endswith(".csv"):
+        allClasses.append(pd.read_csv("./data/"+str(file)))
+
+#print(allClasses[0])
+
+
+rawClasses = pd.concat(allClasses)
+rawClasses = rawClasses[rawClasses.HoursPerWkInclClass != 'S']
+rawClasses = rawClasses[rawClasses.HoursPerWkInclClass.notnull()]
+rawClasses['Yearterm'] = rawClasses['Yearterm'].astype(str)
+rawClasses['Crse'] = rawClasses['Crse'].astype(str)
+rawClasses = rawClasses[rawClasses.Yearterm.str[-1] != '4']
+rawClasses = rawClasses[rawClasses.Yearterm.str[:4].isin(['2012', '2013', '2014', '2015', '2016', '2017', '2018'])]
+rawClasses = rawClasses[rawClasses.CrsTitle != 'REC']
+rawClasses = rawClasses[rawClasses.CrsTitle != 'RECITATION']
+rawClasses = rawClasses[rawClasses.CrsTitle != 'LAB']
+#print(rawClasses["CrsTitle"])
+rawClasses['HoursPerWkInclClass'] = rawClasses['HoursPerWkInclClass'].astype('category')
+rawClasses['HoursPerWkInclClass'] = rawClasses['HoursPerWkInclClass'].cat.rename_categories([2,11,14,17,5,8]).astype('int')
+rawClasses['CrseID'] = rawClasses["Subject"] + rawClasses["Crse"]
+classes = {}
+for i in rawClasses.CrseID.unique():
+    classes[i] = rawClasses[rawClasses['CrseID'] == i]
+
+#print(classes['PHYS3210'].head())
+
+finalClasses = []
+for i in list(classes.keys()):
+    finalClass = {}
+    finalClass['CrseID'] = i
+    finalClass['Crse'] = i[-4:]
+    finalClass['Subject'] = i[:4]
+    finalClass['CrsTitle'] = list(classes[i]['CrsTitle'])[0]
+    finalClass['Challenge'] = round(np.average(classes[i]['Challenge'], weights=classes[i]['FormsReturned']), 2)
+    finalClass['HoursPerWkInclClass'] = round(np.average(classes[i]['HoursPerWkInclClass'], weights=classes[i]['HoursPerWkInclClass']), 2)
+    finalClass['CourseOverall'] = round(np.average(classes[i]['CourseOverall'], weights=classes[i]['CourseOverall']), 2)
+    finalClass['HowMuchLearned'] = round(np.average(classes[i]['HowMuchLearned'], weights=classes[i]['HowMuchLearned']), 2)
+    finalClasses.append(finalClass)
+
+
+
+finalClasses = pd.DataFrame(finalClasses)
+#print(finalClasses)
+finalClasses.to_sql(con=engine, name='courses', if_exists='replace', index=True)
+
+
+""" 
 classes = classes.dropna()
 hours = classes['HoursPerWkInclClass'].tolist()
 #print(hours)
@@ -88,3 +140,4 @@ newClasses['Crse'] = number
 newClasses = newClasses.loc[:,['CrseID','Subject','Crse','CrsTitle','CourseOverall','HoursPerWkInclClass','Challenge','HowMuchLearned']]
 
 newClasses.to_sql(con=engine, name='courses', if_exists='replace', index=True)
+"""

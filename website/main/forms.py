@@ -1,18 +1,7 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-from .models import SiteUser
+from .models import Profile
 
-class SignUpForm(UserCreationForm):
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
-
-    class Meta:
-        model = User
-        fields = ('username', 'email', 'password1', 'password2',)
-
-class SiteUserForm(forms.ModelForm):
-
-    class Meta:
-        model = SiteUser
-        fields = ('hrsPerWeek', 'challenge',)
-
+class ProfileForm(forms.ModelForm):
+	class Meta:
+		model = Profile
+		fields = ('challenge', 'hrsPerWeek', 'coursePlan')

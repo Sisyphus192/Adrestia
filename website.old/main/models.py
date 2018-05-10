@@ -1,27 +1,12 @@
+# This is an auto-generated Django model module.
+# You'll have to do the following manually to clean this up:
+#   * Rearrange models' order
+#   * Make sure each model has one field with primary_key=True
+#   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
+#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
+# Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-#from django_mysql.models import JSONField, Model
-from django.contrib.postgres.fields import JSONField
-
-def default_coursePlan():
-	return { "Fall 2018": [], "Spring 2019" : [] }
-
-class Profile(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
-	challenge = models.PositiveSmallIntegerField(default=4)
-	hrsPerWeek = models.PositiveSmallIntegerField(default=24)
-	coursePlan = JSONField(default = default_coursePlan)
-
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-	if created:
-		Profile.objects.create(user=instance)
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-	instance.profile.save()
 
 
 class Courses(models.Model):
@@ -38,6 +23,8 @@ class Courses(models.Model):
         managed = False
         db_table = 'courses'
 
+class SiteUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="site_user")
+    challenge = models.PositiveSmallIntegerField()
+    hrsPerWeek = models.PositiveSmallIntegerField()
 
-
-# {"Fall 2018": [list of classes], "Spring 2019": [list of classes]}
