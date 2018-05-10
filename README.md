@@ -13,6 +13,7 @@ REPO Structure:
 All code related to the running of the website is in the folder "website/" (a previous iteration is accesible under "website.old/"). Procfile, requirements.txt, and runtime.txt are necessary for lauching on heroku. The data folder contains csv files for our FCQ data. Documents and the Milestone folders contain misc classwork. migrate.py contains the code we use to preprocess and upload our fcq data to the heroku postgres database.
 
 For those unfamiliar with how Django works the structure under "website/" is thus:
+
 -- website/
 -- main/
 -- accounts/
@@ -21,8 +22,13 @@ For those unfamiliar with how Django works the structure under "website/" is thu
 -- manage.py
 
 manage.py is created by django to manage the whole django project and run the website.
+
 website/ (django requires it to have the same name as the parent folder, or we would have given it a more appropriate name (like "settings")) contains the site wide django settings
+
 main/ contains the code to run our site
+
 static/ contains static files like boostrap.css, our own .css files, .js files, etc
+
 templates/ contains all the .html templates that django builds off of
+
 accounts/ contains the code to facilitate our user account login system
